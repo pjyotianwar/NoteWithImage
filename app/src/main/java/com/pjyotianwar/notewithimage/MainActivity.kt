@@ -9,6 +9,7 @@ import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
@@ -78,6 +79,10 @@ class MainActivity : ComponentActivity() {
                                     navigator = destinationsNavigator,
                                     commonViewModel = commonViewModel
                                 )
+                                
+                                BackHandler(true) {
+                                    Log.d("Back: ", "Back not allowed")
+                                }
                             }
 
                             composable(AddNoteDestination) {
@@ -86,6 +91,10 @@ class MainActivity : ComponentActivity() {
                                     commonViewModel = commonViewModel,
                                     applicationContext = applicationContext
                                 )
+
+                                BackHandler(true) {
+                                    Log.d("Back: ", "Back not allowed")
+                                }
                             }
 
                             composable(NotesListDestination) {
@@ -93,6 +102,10 @@ class MainActivity : ComponentActivity() {
                                     navigator = destinationsNavigator,
                                     commonViewModel = commonViewModel
                                 )
+
+                                BackHandler(true) {
+                                    Log.d("Back: ", "Back not allowed")
+                                }
                             }
 
                             composable(LoginDestination) {
@@ -100,6 +113,10 @@ class MainActivity : ComponentActivity() {
                                     navigator = destinationsNavigator,
                                     commonViewModel = commonViewModel
                                 )
+
+                                BackHandler(true) {
+                                    Log.d("Back: ", "Back not allowed")
+                                }
                             }
 
                             composable(SignUpDestination) {
@@ -107,6 +124,10 @@ class MainActivity : ComponentActivity() {
                                     navigator = destinationsNavigator,
                                     commonViewModel = commonViewModel
                                 )
+
+                                BackHandler(true) {
+                                    Log.d("Back: ", "Back not allowed")
+                                }
                             }
                         }
                     }

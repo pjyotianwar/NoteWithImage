@@ -251,6 +251,7 @@ fun SignUp(
             SignUpResult.Success->{
                 makeToast(context, "SignUp Successful")
                 navigator.navigate(NotesListDestination){
+                    popUpToId
                     popUpToRoute
                 }
                 commonViewModel.resetSignUpResult()
