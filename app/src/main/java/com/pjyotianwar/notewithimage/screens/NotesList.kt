@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.pjyotianwar.notewithimage.MainActivity
+import com.pjyotianwar.notewithimage.NavGraphs
 import com.pjyotianwar.notewithimage.destinations.AddNoteDestination
 import com.pjyotianwar.notewithimage.destinations.LoginDestination
 import com.pjyotianwar.notewithimage.viewmodels.CommonViewModel
@@ -55,7 +56,9 @@ fun NotesList(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    navigator.navigate(AddNoteDestination())
+                    navigator.navigate(AddNoteDestination()){
+                        popUpToRoute
+                    }
                 }
             ) {
                 Icon(imageVector = Icons.Default.Note, contentDescription = null)
@@ -73,7 +76,9 @@ fun NotesList(
                         imageVector = Icons.Default.Logout,
                         onIconClicked = {
                             if (commonViewModel.logout()){
-                                navigator.navigate(LoginDestination)
+                                navigator.navigate(LoginDestination){
+                                    popUpToRoute
+                                }
                             }
                             makeToast(context, "Log Out Successful")
                         }
@@ -118,12 +123,16 @@ fun NotesList(
                     onEditClicked = {
                         commonViewModel.editNote.value = true
                         commonViewModel.setNoteValues(note)
-                        navigator.navigate(AddNoteDestination(), onlyIfResumed = true)
+                        navigator.navigate(AddNoteDestination()){
+                            popUpToRoute
+                        }
                     },
                     onClick = {
                         commonViewModel.noteDetail.value = true
                         commonViewModel.setNoteValues(note)
-                        navigator.navigate(AddNoteDestination(), onlyIfResumed = true)
+                        navigator.navigate(AddNoteDestination()){
+                            popUpToRoute
+                        }
                     }
                 )
 

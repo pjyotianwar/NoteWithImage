@@ -239,7 +239,9 @@ fun SignUp(
 
             Button(
                 onClick = {
-                    navigator.navigate(LoginDestination, onlyIfResumed = true)
+                    navigator.navigate(LoginDestination){
+                        popUpToRoute
+                    }
                 }
             ) {
                 Text(text = "Login")
@@ -248,7 +250,9 @@ fun SignUp(
         when (commonViewModel.signUpResult.value) {
             SignUpResult.Success->{
                 makeToast(context, "SignUp Successful")
-                navigator.navigate(NotesListDestination, onlyIfResumed = true)
+                navigator.navigate(NotesListDestination){
+                    popUpToRoute
+                }
                 commonViewModel.resetSignUpResult()
                 commonViewModel.resetLoginResult()
             }

@@ -170,21 +170,6 @@ fun Login(
                 onClick = {
                     keyboardController?.hide()
                     commonViewModel.login()
-//                    when(commonViewModel.login()){
-//                        0-> {
-//                            makeToast(context, "Login Successful")
-//                            navigator.navigate(NotesListDestination)
-//                        }
-//                        -1-> {
-//                            makeToast(context, "No such user!")
-//                        }
-//                        1-> {
-//                            makeToast(context, "Wrong Username or password")
-//                        }
-//                        2->{
-//                            makeToast(context, "Recheck entries")
-//                        }
-//                    }
                 }
             )
             {
@@ -203,7 +188,9 @@ fun Login(
 
             Button(
                 onClick = {
-                    navigator.navigate(SignUpDestination, onlyIfResumed = true)
+                    navigator.navigate(SignUpDestination){
+                        popUpToRoute
+                    }
                 }
             ) {
                 Text(text = "Sign UP")
@@ -218,7 +205,9 @@ fun Login(
             }
             LoginResult.Success->{
                 makeToast(context, "Login Successful")
-                navigator.navigate(NotesListDestination, onlyIfResumed = true)
+                navigator.navigate(NotesListDestination){
+                    popUpToRoute
+                }
                 commonViewModel.resetSignUpResult()
                 commonViewModel.resetLoginResult()
             }

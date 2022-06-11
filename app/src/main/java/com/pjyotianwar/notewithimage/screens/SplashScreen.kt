@@ -42,9 +42,13 @@ fun SplashScreen(
         )
         delay(3000L)
         if (commonViewModel.isUserLoggedIn()) {
-            navigator.navigate(NotesListDestination, onlyIfResumed = true)
+            navigator.navigate(NotesListDestination){
+                popUpToRoute
+            }
         } else {
-            navigator.navigate(LoginDestination, onlyIfResumed = true)
+            navigator.navigate(LoginDestination){
+                popUpToRoute
+            }
         }
     }
 

@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.pjyotianwar.notewithimage.destinations.*
 import com.pjyotianwar.notewithimage.screens.Login
 import com.pjyotianwar.notewithimage.screens.NotesList
@@ -31,6 +32,7 @@ import com.pjyotianwar.notewithimage.viewmodels.CommonViewModel
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.manualcomposablecalls.composable
+import com.ramcosta.composedestinations.spec.Route
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -70,7 +72,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colors.background
                     ) {
-                        DestinationsNavHost(navGraph = NavGraphs.root,) {
+                        DestinationsNavHost(navGraph = NavGraphs.root) {
                             composable(SplashScreenDestination) {
                                 SplashScreen(
                                     navigator = destinationsNavigator,
