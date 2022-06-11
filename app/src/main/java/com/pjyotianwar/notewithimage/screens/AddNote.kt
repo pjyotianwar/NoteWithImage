@@ -61,7 +61,7 @@ fun AddNote(
                     onIconClicked = {
                         Log.v("Back", "Note")
                         commonViewModel.resetNoteValues()
-                        navigator.navigate(NotesListDestination())
+                        navigator.navigate(NotesListDestination(), onlyIfResumed = true)
                     }
                 )
 
@@ -87,7 +87,7 @@ fun AddNote(
                         onIconClicked = {
                             if(commonViewModel.validateNote()) {
                                 commonViewModel.resetNoteValues()
-                                navigator.navigate(NotesListDestination())
+                                navigator.navigate(NotesListDestination(), onlyIfResumed = true)
                             }
                             else{
                                 Toast.makeText(context, "Recheck values entered.", Toast.LENGTH_SHORT).show()

@@ -229,10 +229,6 @@ class CommonViewModel @Inject constructor(
 
             if (uexists==true){
                 if (uvalid==true){
-                    prefs.edit().putBoolean("Islogin", true).commit()
-                    prefs.edit().apply {
-                        putString("userName", usr?.userEmail)
-                    }.apply()
 
                     currentUserMail.value = usr?.userEmail.toString()
                     currentUserName.value = usr?.userName.toString()

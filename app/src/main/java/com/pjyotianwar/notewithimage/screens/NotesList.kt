@@ -118,12 +118,12 @@ fun NotesList(
                     onEditClicked = {
                         commonViewModel.editNote.value = true
                         commonViewModel.setNoteValues(note)
-                        navigator.navigate(AddNoteDestination())
+                        navigator.navigate(AddNoteDestination(), onlyIfResumed = true)
                     },
                     onClick = {
                         commonViewModel.noteDetail.value = true
                         commonViewModel.setNoteValues(note)
-                        navigator.navigate(AddNoteDestination())
+                        navigator.navigate(AddNoteDestination(), onlyIfResumed = true)
                     }
                 )
 
