@@ -100,8 +100,8 @@ class CommonViewModel @Inject constructor(
 //        val ptrn =  "^[a-z](?=.*[~'!@#$%^&*-_=+/.,])(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,}).{8,15}\$"
 //        val pattern = Pattern.compile(ptrn)
 //        pattern.matcher(password).find()
-        return !password.contains(name, ignoreCase = true) &&
-                password.matches(Regex(strongPass))
+        return !password.contains(name, ignoreCase = true) //&&
+//                password.matches(Regex(strongPass))
     }
 
     fun clearSignUp() {
@@ -121,7 +121,7 @@ class CommonViewModel @Inject constructor(
     fun validateLogin(): Boolean {
         luserNameErrorState.value = luserName.value.isEmpty()
         lpasswordErrorState.value = lpassword.value.isEmpty()
-        return luserName.value.isNotEmpty() && lpassword.value.length in 8..15
+        return luserName.value.isNotEmpty()// && lpassword.value.length in 8..15
     }
 
     fun validateSignUp(): Boolean {
@@ -373,11 +373,13 @@ class CommonViewModel @Inject constructor(
 
     fun validateTitle(title: String): Boolean{
         Log.d("validateTitle", "${title.length} ${title.length in 5..100}")
-        return title.length in 5..100
+//        return title.length in 5..100
+        return true
     }
 
     fun validateDescription(desc: String): Boolean{
         Log.d("validateDesc", "${desc.length} ${desc.length in 100..1000}")
-        return desc.length in 100..1000
+//        return desc.length in 100..1000
+        return true
     }
 }

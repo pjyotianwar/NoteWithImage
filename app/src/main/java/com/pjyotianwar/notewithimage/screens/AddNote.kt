@@ -132,9 +132,9 @@ fun editNote(commonViewModel: CommonViewModel, applicationContext: Context) {
                 text = commonViewModel.noteTitle.value,
                 label = "Title",
                 onTextChange = {
-                    if (it.all { char ->
-                            char.isLetter() || char.isWhitespace()
-                        })
+//                    if (it.all { char ->
+//                            char.isLetter() || char.isWhitespace()
+//                        })
                         commonViewModel.noteTitle.value = it
                     if (commonViewModel.noteTitleErrorState.value) {
                         commonViewModel.noteTitleErrorState.value = false
@@ -156,7 +156,7 @@ fun editNote(commonViewModel: CommonViewModel, applicationContext: Context) {
                 text = commonViewModel.noteDescription.value,
                 label = "Description",
                 onTextChange = {
-                    if (it.all { char -> char.isLetter() || char.isWhitespace() })
+                    //if (it.all { char -> char.isLetter() || char.isWhitespace() })
                         commonViewModel.noteDescription.value = it
                     if (commonViewModel.noteDescriptionErrorState.value) {
                         commonViewModel.noteDescriptionErrorState.value = false
